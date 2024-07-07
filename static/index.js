@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function cargarPublicaciones(isLoggedIn) {
-    fetch('http://localhost:5000/publicaciones', {
+    fetch('https://leonard27.pythonanywhere.com/publicaciones', {
         method: 'GET'
     })
     .then(response => response.json())
@@ -104,7 +104,7 @@ document.getElementById('createPostForm').addEventListener('submit', function(ev
     const contenido = document.getElementById('contenido').value;
     const token = localStorage.getItem('token');
 
-    fetch('http://localhost:5000/publicaciones', {
+    fetch('https://leonard27.pythonanywhere.com/publicaciones', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -130,7 +130,7 @@ document.getElementById('createPostForm').addEventListener('submit', function(ev
 function eliminarPublicacion(id) {
     const token = localStorage.getItem('token');
 
-    fetch(`http://localhost:5000/eliminar/${id}`, {
+    fetch(`https://leonard27.pythonanywhere.com/eliminar/${id}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -153,7 +153,7 @@ function eliminarPublicacion(id) {
 function enviarComentario(publicacionId, contenido) {
     const token = localStorage.getItem('token');
 
-    fetch(`http://localhost:5000/comentar/${publicacionId}`, {
+    fetch(`https://leonard27.pythonanywhere.com/comentar/${publicacionId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -2,7 +2,7 @@
 document.getElementById('logoutBtn').addEventListener('click', function() {
     const token = localStorage.getItem('token');
 
-    fetch('http://localhost:5000/logout', {
+    fetch('https://leonard27.pythonanywhere.com/logout', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`

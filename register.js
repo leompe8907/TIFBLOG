@@ -14,7 +14,7 @@ document.getElementById('registerForm').addEventListener('submit', function(even
     const data = { email, password, nombre };
   
     // Reemplaza esta URL con la URL de tu servidor backend
-    const backendUrl = 'http://localhost:5000/register';  // URL corregida
+    const backendUrl = 'https://leonard27.pythonanywhere.com/register';  // URL corregida
   
     fetch(backendUrl, {
       method: 'POST',
