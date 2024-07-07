@@ -4,7 +4,7 @@ const id = urlParams.get('id');
 
 // Cargar el contenido actual de la publicación
 document.addEventListener('DOMContentLoaded', function() {
-    fetch(`http://localhost:5000/publicaciones/${id}`)
+    fetch(`https://leonard27.pythonanywhere.com/publicaciones/${id}`)
         .then(response => response.json())
         .then(data => {
             document.getElementById('contenido').value = data.contenido;
