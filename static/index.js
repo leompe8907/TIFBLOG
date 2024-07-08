@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function cargarPublicaciones(isLoggedIn) {
-    fetch('https://leonard27.pythonanywhere.com/publicaciones', {
+    fetch('https://leonard27.pythonanywhere.com/publicacion', {
         method: 'GET'
     })
     .then(response => response.json())
