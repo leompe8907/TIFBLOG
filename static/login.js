@@ -28,5 +28,15 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             window.location.href = './index.html';
         }
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => {
+        console.error('Error:', error);
+        // Comprobar si el error es debido a un token expirado
+        if (error.message && (error.message.includes('token expired') || error.message.includes('Token inválido o expirado'))) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = 'index.html';
+        } else {
+            alert('Error desconocido al cerrar sesión');
+        }
+    });
 });
