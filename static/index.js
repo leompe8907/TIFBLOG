@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function cargarPublicaciones(isLoggedIn) {
-    fetch('https://leonard27.pythonanywhere.com/publicacion', {
+    fetch('http://127.0.0.1:5000/publicacion', {
         method: 'GET'
     })
     .then(response => response.json())
@@ -113,12 +113,13 @@ document.getElementById('createPostForm').addEventListener('submit', function(ev
     event.preventDefault();
     const contenido = document.getElementById('contenido').value;
     const token = localStorage.getItem('token');
+    console.log('Token enviado:', token); 
 
-    fetch('https://leonard27.pythonanywhere.com/publicaciones', {
+    fetch('http://127.0.0.1:5000/publicaciones', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            // 'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ contenido })
     })
@@ -150,11 +151,11 @@ document.getElementById('createPostForm').addEventListener('submit', function(ev
 function eliminarPublicacion(id) {
     const token = localStorage.getItem('token');
 
-    fetch(`https://leonard27.pythonanywhere.com/eliminar/${id}`, {
+    fetch(`http://127.0.0.1:5000/eliminar/${id}`, {
         method: 'DELETE',
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
+        // headers: {
+        //     'Authorization': `Bearer ${token}`
+        // }
     })
     .then(response => response.json())
     .then(data => {
@@ -183,11 +184,11 @@ function eliminarPublicacion(id) {
 function enviarComentario(publicacionId, contenido) {
     const token = localStorage.getItem('token');
 
-    fetch(`https://leonard27.pythonanywhere.com/comentar/${publicacionId}`, {
+    fetch(`http://127.0.0.1:5000/comentar/${publicacionId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            // 'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ contenido })
     })

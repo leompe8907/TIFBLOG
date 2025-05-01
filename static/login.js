@@ -7,7 +7,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 
     const data = { email, password, remember };
 
-    const backendUrl = 'https://leonard27.pythonanywhere.com/login';
+    const backendUrl = 'http://127.0.0.1:5000//login';
 
     fetch(backendUrl, {
         method: 'POST',

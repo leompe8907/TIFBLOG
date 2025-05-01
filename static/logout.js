@@ -2,11 +2,11 @@
 document.getElementById('logoutBtn').addEventListener('click', function() {
     const token = localStorage.getItem('token');
 
-    fetch('https://leonard27.pythonanywhere.com/logout', {
+    fetch('http://127.0.0.1:5000/logout', {
         method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
+        // headers: {
+        //     'Authorization': `Bearer ${token}`
+        // }
     })
     .then(response => response.json())
     .then(data => {

@@ -4,7 +4,7 @@ const id = urlParams.get('id');
 
 // Cargar el contenido actual de la publicación
 document.addEventListener('DOMContentLoaded', function() {
-    fetch(`https://leonard27.pythonanywhere.com/publicaciones/${id}`)
+    fetch(`http://127.0.0.1:5000/publicaciones/${id}`)
         .then(response => response.json())
         .then(data => {
             document.getElementById('contenido').value = data.contenido;
@@ -29,11 +29,11 @@ document.getElementById('editPostForm').addEventListener('submit', function(even
     const contenido = document.getElementById('contenido').value;
     const token = localStorage.getItem('token');
 
-    fetch(`https://leonard27.pythonanywhere.com/editar/${id}`, {
+    fetch(`http://127.0.0.1:5000/editar/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            // 'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ contenido })
     })
